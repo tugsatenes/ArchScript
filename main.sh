@@ -91,7 +91,7 @@ echo 127.0.0.1        archlinux localhost \
 mkinitcpio -P
 
 # Önyükleyici
-pacman -S grub efibootmgr
+pacman -S grub 
 mkdir /boot/efi
 mount /dev/vda1 /boot/efi
 grub-install --target=x86_64-efi --bootloader-id=arch
