@@ -2,29 +2,46 @@
 
 
 # Klavyeyi Türkçe yapar
+echo "Klavye Türkçe yapılıyor"
 loadkeys trq
+sleep 1
 
 # Efiyi kontrol eder
 # Şu anlık sadece UEFI destekli, yardımlarınızı bekliyorum!
+echo "UEFI kontrol ediliyor"
 ls /sys/firmware/efi/efivars
+sleep 2
 
 # Şu anlık sadece kablolu dhcp kurulumlar destekli
-#İnterneti kontrol eder
+# İnterneti kontrol eder
+echo "İnternet kontrol ediliyor"
 ping -c 5 archlinux.org
+sleep 2
 
 # Sistem saatini günceller
+echo "Sistem saati güncelleniyor"
 timedatectl set-ntp true
+sleep 2
 
 # Şu anlık sadece sanal makine desteği var
 # Diski gösterir
 #fdisk /dev/nvme0n1 -l
 #fdisk /dev/sda -l
+echo "Şu anlık sadece sanal makine desteği var \
+Diski gösteriyor"
 fdisk /dev/vda -l
+sleep 2
 
 # diski şu şekilde biçimlendirir:
 # 512MB UEFI disk bölümü (1)
 # 1GB Swap (takas) alanı (2)
 # Diskin kalanı ise Kök (/) bölümü (3)
+
+echo "Disk bu biçimde biçimlendiriliyor: \
+ 512MB UEFI disk bölümü (1) \
+ 1GB Swap (takas) alanı (2) \
+ Diskin kalanı ise Kök (/) bölümü (3)"
+sleep 2
 
 sed -e 's/\s*\([\+0-9a-zA-Z]*\).*/\1/' << FDISK_CMDS  | fdisk /dev/vda
 g      # Yeni GPT bölümü oluşturur
