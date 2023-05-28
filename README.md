@@ -32,7 +32,7 @@ mount /dev/vda3 /mnt
 
 arch-chroot /mnt
 
-passwd yazın ve şifrenizi girin! (şifreniz gözükmeyecektir!!!)
+passwd yazıp enterlayın (↵) ve şifrenizi girin! (şifreniz gözükmeyecektir!!!)
 
 exit
 
