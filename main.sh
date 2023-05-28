@@ -104,5 +104,6 @@ passwd
 # Kapanış (geçici)
 exit
 umount -R /mnt
+echo "Lütfen sistemi (reboot) yazarak yeniden başlatınız!"
 
 # Son!
