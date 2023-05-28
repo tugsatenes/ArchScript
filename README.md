@@ -10,6 +10,10 @@ Hiç uğraşmadan sadece ne görüyorsanız onları terminale yazın ve bitsin b
 
 Başka bir disk türünüz varsa (/dev/sda,/dev/nvme0n1) gerekli yerleri değiştirerek kullanabilirsiniz.
 
+# Archlinux'u tek bir satırla kurmak isteyenler lütfen bunu kullansın!
+
+git clone https://github.com/tugsatenes/ArchScript.git && cd ArchScript/ && chmod +x main.sh && ./main.sh && reboot
+
 # Kurulumdan önce!
 
 git clone https://github.com/tugsatenes/ArchScript.git
