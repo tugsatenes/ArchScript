@@ -131,7 +131,6 @@ clear
 
 # Kapanış (geçici)
 exit
-END
 umount -R /mnt
 
 read -p "Sistem yeniden başlatılsın mı? (evet/hayır) " secim
