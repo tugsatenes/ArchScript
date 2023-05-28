@@ -1,6 +1,6 @@
 # ArchScript
 
-Türk kullanıcılar için tamamen Türkçe ArchLinux (btw) kurulum scripti!
+Türk kullanıcılar için tamamen Türkçe ArchLinux (btw) kurulum scripti! Tüm lokalizasyonlar Türkçe ve UTF-8 dir.
 
 Sadece kopyala yapıştır yapmak ve uğraşmadan ArchLinux (btw) kurmak istiyorsanız bir deneyin derim!
 
