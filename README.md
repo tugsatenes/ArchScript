@@ -2,16 +2,16 @@
 Türk kullanıcılar için tamamen Türkçe ArchLinux kurulum scripti!
 # Kurulumdan önce!
 
-# git clone https://github.com/tugsatenes/ArchScript.git
+git clone https://github.com/tugsatenes/ArchScript.git
 
-# cd ArchScript/
+cd ArchScript/
 
-# chmod +x main.sh
+chmod +x main.sh
 
 # Kurulum!
 
-# ./main.sh
+./main.sh
 
-# Arkanıza yaslanın ve 10-15dk bekleyin!
+Arkanıza yaslanın ve 10-15dk bekleyin!
 
 # Yeni minimal Arch (btw) sisteminiz hazır!
