@@ -26,18 +26,6 @@ Arkanıza yaslanın ve 10-15dk bekleyin!
 
 # Kurulum sonrası!
 
-Yeni sisteminizde kullanmak için bir root parolasını girmeniz gerekli! Bunun için sadece aşağıdaki adımları uygulayın!
-
-mount /dev/vda3 /mnt
-
-arch-chroot /mnt
-
-passwd yazıp enterlayın (↵) ve şifrenizi girin! (şifreniz gözükmeyecektir!!!)
-
-exit
-
-umount -R /mnt
-
 reboot
 
 # Yeni minimal Arch (btw) sisteminiz hazır!
