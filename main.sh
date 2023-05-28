@@ -89,48 +89,48 @@ pacstrap -K /mnt base linux linux-firmware
 genfstab -U /mnt >> /mnt/etc/fstab
 
 # Chroot
-chroot /mnt /bin/bash
+arch-chroot /mnt
 
 # Zaman dilimi
-ln -sf /usr/share/zoneinfo/Europe/Istanbul /etc/localtime
-hwclock --systohc
+arch-chroot /mnt ln -sf /usr/share/zoneinfo/Europe/Istanbul /etc/localtime
+arch-chroot /mnt hwclock --systohc
 
 # Lokalizasyon
-echo tr_TR.UTF-8 UTF-8 > /etc/locale.gen
-locale-gen
-touch /etc/locale.conf
-echo LANG=tr_TR.UTF-8 > /etc/locale.conf
-touch  /etc/vconsole.conf
-echo KEYMAP=trq > /etc/vconsole.conf
+arch-chroot /mnt echo tr_TR.UTF-8 UTF-8 > /etc/locale.gen
+arch-chroot /mnt locale-gen
+arch-chroot /mnt touch /etc/locale.conf
+arch-chroot /mnt echo LANG=tr_TR.UTF-8 > /etc/locale.conf
+arch-chroot /mnt touch  /etc/vconsole.conf
+arch-chroot /mnt echo KEYMAP=trq > /etc/vconsole.conf
 clear
 
 # Ağ Konfigürasyonu
-touch /etc/hostname
-echo archlinux > /etc/hostname
-echo 127.0.0.1        archlinux localhost \
+arch-chroot /mnt touch /etc/hostname
+arch-chroot /mnt echo archlinux > /etc/hostname
+arch-chroot /mnt echo 127.0.0.1        archlinux localhost \
 ::1              archlinux localhost \
 127.0.1.1        archlinux localhost > /etc/hosts
 clear
 
 
 # İnitramfs
-mkinitcpio -P
+arch-chroot /mnt mkinitcpio -P
 
 # Önyükleyici
-pacman -S grub 
-mkdir /boot/efi
-mount /dev/vda1 /boot/efi
-grub-install --target=x86_64-efi --bootloader-id=arch
-grub-mkconfig -o /boot/grub/grub.cfg
+arch-chroot /mnt pacman -S grub 
+arch-chroot /mnt mkdir /boot/efi
+arch-chroot /mnt mount /dev/vda1 /boot/efi
+arch-chroot /mnt grub-install --target=x86_64-efi --bootloader-id=arch
+arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 clear
 
 # Parola
-echo "Lütfen root kullanıcısı için bir şifre girin: "
-passwd
+arch-chroot /mnt echo "Lütfen root kullanıcısı için bir şifre girin: "
+arch-chroot /mnt passwd
 clear
 
 # Kapanış (geçici)
-exit
+arch-chroot /mnt exit
 umount -R /mnt
 
 read -p "Sistem yeniden başlatılsın mı? (evet/hayır) " secim
