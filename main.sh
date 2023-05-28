@@ -60,3 +60,15 @@ mount /dev/vda3 /mnt
 
 # Gerekli paketleri /mnt ye kuruyoruz
 pacstrap -K /mnt base linux linux-firmware
+
+# Fstab dosyasını oluşturma
+genfstab -U /mnt >> /mnt/etc/fstab
+
+# Chroot işlemi
+arch-chroot /mnt
+
+# Zaman dilimi
+ln -sf /usr/share/zoneinfo/Europe/Istanbul /etc/localtime
+hwclock --systohc
+
+#
