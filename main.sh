@@ -97,9 +97,12 @@ mount /dev/vda1 /boot/efi
 grub-install --target=x86_64-efi --bootloader-id=arch
 grub-mkconfig -o /boot/grub/grub.cfg
 
+# Parola
+echo "Lütfen root kullanıcısı için bir şifre girin: "
+passwd
+
 # Kapanış (geçici)
 exit
 umount -R /mnt
 
-
-# The End!
+# Son!
