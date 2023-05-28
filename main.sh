@@ -81,11 +81,18 @@ pacstrap -K /mnt base linux linux-firmware
 # Fstab dosyasını oluşturma
 genfstab -U /mnt >> /mnt/etc/fstab
 
-# Chroot işlemi
-arch-chroot /mnt
-
-# Deneme 1
+# Chroot
 cd /mnt
+mount -t proc /proc proc/
+mount -t sysfs /sys sys/
+mount --rbind /dev dev/
+mount --rbind /run run/
+mount --rbind /sys/firmware/efi/efivars sys/firmware/efi/efivars/
+cp /etc/resolv.conf etc/resolv.conf
+chroot /mnt /bin/bash
+source /etc/profile
+source ~/.bashrc
+export PS1="(chroot) $PS1"
 
 # Zaman dilimi
 ln -sf /usr/share/zoneinfo/Europe/Istanbul /etc/localtime
@@ -123,6 +130,7 @@ passwd
 
 # Kapanış (geçici)
 exit
+cd /
 umount -R /mnt
 echo "Lütfen sistemi (reboot) yazarak yeniden başlatınız!"
 
