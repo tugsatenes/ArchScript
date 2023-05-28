@@ -88,9 +88,6 @@ pacstrap -K /mnt base linux linux-firmware
 # Fstab dosyasını oluşturma
 genfstab -U /mnt >> /mnt/etc/fstab
 
-# Chroot
-arch-chroot /mnt
-
 # Zaman dilimi
 arch-chroot /mnt ln -sf /usr/share/zoneinfo/Europe/Istanbul /etc/localtime
 arch-chroot /mnt hwclock --systohc
