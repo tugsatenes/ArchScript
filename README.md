@@ -8,6 +8,8 @@ Hiç uğraşmadan sadece ne görüyorsanız onları terminale yazın ve bitsin b
 
 Şu anlık sadece bir prototip olduğundan sanal makine içinde ve /dev/vda disklerle denemenizi (şiddetle) tavsiye ederim. 
 
+Başka bir disk türünüz varsa (/dev/sda,/dev/nvme0n1) gerekli yerleri değiştirerek kullanabilirsiniz.
+
 # Kurulumdan önce!
 
 git clone https://github.com/tugsatenes/ArchScript.git
