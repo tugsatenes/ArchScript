@@ -89,7 +89,7 @@ pacstrap -K /mnt base linux linux-firmware
 genfstab -U /mnt >> /mnt/etc/fstab
 
 # Chroot
-chroot /mnt /bin/bash <<END
+chroot /mnt /bin/bash
 
 # Zaman dilimi
 ln -sf /usr/share/zoneinfo/Europe/Istanbul /etc/localtime
