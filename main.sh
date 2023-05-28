@@ -2,7 +2,7 @@
 
 
 # Klavyeyi Türkçe yapar
-echo "Klavye Türkçe yapılıyor"
+echo "Klavye Turkce yapılıyor"
 loadkeys trq
 sleep 1
 clear
@@ -16,13 +16,13 @@ clear
 
 # Şu anlık sadece kablolu dhcp kurulumlar destekli
 # İnterneti kontrol eder
-echo "İnternet kontrol ediliyor"
+echo "Internet kontrol ediliyor"
 ping -c 5 archlinux.org
 sleep 2
 clear
 
 # Sistem saatini günceller
-echo "Sistem saati güncelleniyor"
+echo "Sistem saati guncelleniyor"
 timedatectl set-ntp true
 sleep 2
 clear
@@ -31,7 +31,7 @@ clear
 # Diski gösterir
 #fdisk /dev/nvme0n1 -l
 #fdisk /dev/sda -l
-echo "Şu anlık sadece sanal makine desteği var \
+echo "Şu anlık sadece sanal makine destegi var \
 Diski gösteriyor"
 fdisk /dev/vda -l
 sleep 2
@@ -42,10 +42,10 @@ clear
 # 1GB Swap (takas) alanı (2)
 # Diskin kalanı ise Kök (/) bölümü (3)
 
-echo "Disk bu biçimde biçimlendiriliyor: \
- 512MB UEFI disk bölümü (1) \
+echo "Disk bu bicimde bicimlendiriliyor: \
+ 512MB UEFI disk bolumu (1) \
  1GB Swap (takas) alanı (2) \
- Diskin kalanı ise Kök (/) bölümü (3)"
+ Diskin kalanı ise Kok (/) bolumu (3)"
 sleep 2
 clear
 
