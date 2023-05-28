@@ -2,7 +2,7 @@
 
 
 # Klavyeyi Türkçe yapar
-echo "Klavye Turkce yapılıyor"
+echo "Klavye Turkce yapiliyor"
 loadkeys trq
 sleep 1
 clear
@@ -44,8 +44,8 @@ clear
 
 echo "Disk bu bicimde bicimlendiriliyor: \
  512MB UEFI disk bolumu (1) \
- 1GB Swap (takas) alanı (2) \
- Diskin kalanı ise Kok (/) bolumu (3)"
+ 1GB Swap (takas) alani (2) \
+ Diskin kalani ise Kok (/) bolumu (3)"
 sleep 2
 clear
 
