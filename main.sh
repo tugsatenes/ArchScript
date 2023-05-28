@@ -26,7 +26,7 @@ fdisk /dev/vda -l
 # 1GB Swap (takas) alanı (2)
 # Diskin kalanı ise Kök (/) bölümü (3)
 
-sed -e 's/\s*\([\+0-9a-zA-Z]*\).*/\1/' << FDISK_CMDS  | fdisk /dev/nvme0n1
+sed -e 's/\s*\([\+0-9a-zA-Z]*\).*/\1/' << FDISK_CMDS  | fdisk /dev/vda
 g      # Yeni GPT bölümü oluşturur
 n      # yeni bölüm ekler
 1      # Bölüm numarası
