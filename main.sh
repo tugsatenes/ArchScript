@@ -90,3 +90,16 @@ echo 127.0.0.1        archlinux localhost \
 # İnitramfs
 mkinitcpio -P
 
+# Önyükleyici
+pacman -S grub efibootmgr
+mkdir /boot/efi
+mount /dev/vda1 /boot/efi
+grub-install --target=x86_64-efi --bootloader-id=arch
+grub-mkconfig -o /boot/grub/grub.cfg
+
+# Kapanış (geçici)
+exit
+umount -R /mnt
+
+
+# The End!
