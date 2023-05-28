@@ -89,17 +89,7 @@ pacstrap -K /mnt base linux linux-firmware
 genfstab -U /mnt >> /mnt/etc/fstab
 
 # Chroot
-cd /mnt
-mount -t proc /proc proc/
-mount -t sysfs /sys sys/
-mount --rbind /dev dev/
-mount --rbind /run run/
-mount --rbind /sys/firmware/efi/efivars sys/firmware/efi/efivars/
-cp /etc/resolv.conf etc/resolv.conf
-chroot /mnt /bin/bash
-source /etc/profile
-source ~/.bashrc
-export PS1="(chroot) $PS1"
+chroot /mnt /bin/bash <<END
 
 # Zaman dilimi
 ln -sf /usr/share/zoneinfo/Europe/Istanbul /etc/localtime
@@ -141,14 +131,15 @@ clear
 
 # Kapanış (geçici)
 exit
-cd /
+END
 umount -R /mnt
+
 read -p "Sistem yeniden başlatılsın mı? (evet/hayır) " secim
 
 if [ "$secim" = "evet" ] 
 then
     echo "Sistem yeniden başlatılıyor..."
-    sudo reboot
+    reboot
 elif [ "$secim" = "hayır" ] 
 then
     echo "Sistem yeniden başlatılmayacak."
