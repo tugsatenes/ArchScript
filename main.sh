@@ -49,3 +49,14 @@ n      #
 w      # bölümlendirme tablosunu yazar ve çıkar
 FDISK_CMDS
 
+# Dosya sistemleri
+mkfs.fat -F 32 /dev/vda1    # UEFI bölümü
+mkswap /dev/vda2            # SWAP oluşturma
+swapon /dev/vda2            # SWAP etkinleştirme
+mkfs.ext4 /dev/vda3         # Kök (/)
+
+# Bağlama (mount) aşaması
+mount /dev/vda3 /mnt
+
+# Gerekli paketleri /mnt ye kuruyoruz
+pacstrap -K /mnt base linux linux-firmware
