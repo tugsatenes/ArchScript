@@ -5,23 +5,27 @@
 echo "Klavye Türkçe yapılıyor"
 loadkeys trq
 sleep 1
+clear
 
 # Efiyi kontrol eder
 # Şu anlık sadece UEFI destekli, yardımlarınızı bekliyorum!
 echo "UEFI kontrol ediliyor"
 ls /sys/firmware/efi/efivars
 sleep 2
+clear
 
 # Şu anlık sadece kablolu dhcp kurulumlar destekli
 # İnterneti kontrol eder
 echo "İnternet kontrol ediliyor"
 ping -c 5 archlinux.org
 sleep 2
+clear
 
 # Sistem saatini günceller
 echo "Sistem saati güncelleniyor"
 timedatectl set-ntp true
 sleep 2
+clear
 
 # Şu anlık sadece sanal makine desteği var
 # Diski gösterir
@@ -31,6 +35,7 @@ echo "Şu anlık sadece sanal makine desteği var \
 Diski gösteriyor"
 fdisk /dev/vda -l
 sleep 2
+clear
 
 # diski şu şekilde biçimlendirir:
 # 512MB UEFI disk bölümü (1)
@@ -42,6 +47,7 @@ echo "Disk bu biçimde biçimlendiriliyor: \
  1GB Swap (takas) alanı (2) \
  Diskin kalanı ise Kök (/) bölümü (3)"
 sleep 2
+clear
 
 sed -e 's/\s*\([\+0-9a-zA-Z]*\).*/\1/' << FDISK_CMDS  | fdisk /dev/vda
 g      # Yeni GPT bölümü oluşturur
@@ -74,6 +80,7 @@ mkfs.ext4 /dev/vda3         # Kök (/)
 
 # Bağlama (mount) aşaması
 mount /dev/vda3 /mnt
+clear
 
 # Gerekli paketleri /mnt ye kuruyoruz
 pacstrap -K /mnt base linux linux-firmware
@@ -105,6 +112,7 @@ touch /etc/locale.conf
 echo LANG=tr_TR.UTF-8 > /etc/locale.conf
 touch  /etc/vconsole.conf
 echo KEYMAP=trq > /etc/vconsole.conf
+clear
 
 # Ağ Konfigürasyonu
 touch /etc/hostname
@@ -112,6 +120,7 @@ echo archlinux > /etc/hostname
 echo 127.0.0.1        archlinux localhost \
 ::1              archlinux localhost \
 127.0.1.1        archlinux localhost > /etc/hosts
+clear
 
 
 # İnitramfs
@@ -123,15 +132,29 @@ mkdir /boot/efi
 mount /dev/vda1 /boot/efi
 grub-install --target=x86_64-efi --bootloader-id=arch
 grub-mkconfig -o /boot/grub/grub.cfg
+clear
 
 # Parola
 echo "Lütfen root kullanıcısı için bir şifre girin: "
 passwd
+clear
 
 # Kapanış (geçici)
 exit
 cd /
 umount -R /mnt
-echo "Lütfen sistemi (reboot) yazarak yeniden başlatınız!"
+read -p "Sistem yeniden başlatılsın mı? (evet/hayır) " secim
+
+if [ "$secim" = "evet" ] 
+then
+    echo "Sistem yeniden başlatılıyor..."
+    sudo reboot
+elif [ "$secim" = "hayır" ] 
+then
+    echo "Sistem yeniden başlatılmayacak."
+else 
+    echo "Geçersiz seçim. Lütfen evet veya hayır girin."
+    exit
+fi
 
 # Son!
