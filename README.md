@@ -16,6 +16,8 @@ git clone https://github.com/tugsatenes/ArchScript.git && cd ArchScript/ && chmo
 
 # Kurulumdan önce!
 
+pacman -Sy git
+
 git clone https://github.com/tugsatenes/ArchScript.git
 
 cd ArchScript/
