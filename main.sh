@@ -15,11 +15,11 @@ ping -c 5 archlinux.org
 # Sistem saatini günceller
 timedatectl set-ntp true
 
-# Şu anlık sadece nvme desteği var
+# Şu anlık sadece sanal makine desteği var
 # Diski gösterir
-
-fdisk /dev/nvme0n1 -l
+#fdisk /dev/nvme0n1 -l
 #fdisk /dev/sda -l
+fdisk /dev/vda -l
 
 # diski şu şekilde biçimlendirir:
 # 512MB UEFI disk bölümü (1)
