@@ -71,4 +71,22 @@ arch-chroot /mnt
 ln -sf /usr/share/zoneinfo/Europe/Istanbul /etc/localtime
 hwclock --systohc
 
-#
+# Lokalizasyon
+echo tr_TR.UTF-8 UTF-8 > /etc/locale.gen
+locale-gen
+touch /etc/locale.conf
+echo LANG=tr_TR.UTF-8 > /etc/locale.conf
+touch  /etc/vconsole.conf
+echo KEYMAP=trq > /etc/vconsole.conf
+
+# Ağ Konfigürasyonu
+touch /etc/hostname
+echo archlinux > /etc/hostname
+echo 127.0.0.1        archlinux localhost \
+::1              archlinux localhost \
+127.0.1.1        archlinux localhost > /etc/hosts
+
+
+# İnitramfs
+mkinitcpio -P
+
