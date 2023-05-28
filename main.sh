@@ -84,6 +84,9 @@ genfstab -U /mnt >> /mnt/etc/fstab
 # Chroot işlemi
 arch-chroot /mnt
 
+# Deneme 1
+cd /mnt
+
 # Zaman dilimi
 ln -sf /usr/share/zoneinfo/Europe/Istanbul /etc/localtime
 hwclock --systohc
