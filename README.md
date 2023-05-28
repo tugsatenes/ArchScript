@@ -26,7 +26,7 @@ chmod +x main.sh
 
 ./main.sh
 
-Arkanıza yaslanın ve 10-15dk bekleyin!
+Arkanıza yaslanın ve 5-10 dakika bekleyin!
 
 # Kurulum sonrası!
 
