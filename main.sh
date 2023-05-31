@@ -27,13 +27,12 @@ timedatectl set-ntp true
 sleep 2
 clear
 
-# Şu anlık sadece sanal makine desteği var
 # Diski gösterir
 #fdisk /dev/nvme0n1 -l
-#fdisk /dev/sda -l
-echo "Şu anlık sadece sanal makine destegi var \
-Diski gösteriyor"
-fdisk /dev/vda -l
+fdisk /dev/sda -l
+# echo "Şu anlık sadece sanal makine destegi var \
+# Diski gösteriyor"
+# fdisk /dev/vda -l
 sleep 2
 clear
 
@@ -49,7 +48,7 @@ echo "Disk bu bicimde bicimlendiriliyor: \
 sleep 2
 clear
 
-sed -e 's/\s*\([\+0-9a-zA-Z]*\).*/\1/' << FDISK_CMDS  | fdisk /dev/vda
+sed -e 's/\s*\([\+0-9a-zA-Z]*\).*/\1/' << FDISK_CMDS  | fdisk /dev/sda
 g      # Yeni GPT bölümü oluşturur
 n      # yeni bölüm ekler
 1      # Bölüm numarası
@@ -73,13 +72,13 @@ w      # bölümlendirme tablosunu yazar ve çıkar
 FDISK_CMDS
 
 # Dosya sistemleri
-mkfs.fat -F 32 /dev/vda1    # UEFI bölümü
-mkswap /dev/vda2            # SWAP oluşturma
-swapon /dev/vda2            # SWAP etkinleştirme
-mkfs.ext4 /dev/vda3         # Kök (/)
+mkfs.fat -F 32 /dev/sda1    # UEFI bölümü
+mkswap /dev/sda2            # SWAP oluşturma
+swapon /dev/sda2            # SWAP etkinleştirme
+mkfs.ext4 /dev/sda3         # Kök (/)
 
 # Bağlama (mount) aşaması
-mount /dev/vda3 /mnt
+mount /dev/sda3 /mnt
 clear
 
 # Gerekli paketleri /mnt ye kuruyoruz
